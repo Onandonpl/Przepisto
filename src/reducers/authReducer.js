@@ -1,3 +1,11 @@
+const emptyUser = {
+  user: null,
+  displayName: null,
+  loading: true,
+  error: false,
+  isLogged: false,
+};
+
 export const authReducer = (state, action) => {
   switch (action.type) {
     case "SUCCES_LOGIN":
@@ -6,15 +14,11 @@ export const authReducer = (state, action) => {
         displayName: action.payload.displayName,
         loading: false,
         error: false,
+        isLogged: true,
       };
 
     case "LOGOUT":
-      return {
-        user: null,
-        displayName: null,
-        loading: true,
-        error: false,
-      };
+      return emptyUser;
 
     default:
       throw new Error(`Unknown action ${action.type}`);
@@ -23,12 +27,6 @@ export const authReducer = (state, action) => {
 
 export const initialState = () => {
   const userFromLocalStorage = JSON.parse(localStorage.getItem("authUser"));
-  const emptyUser = {
-    user: null,
-    displayName: null,
-    loading: true,
-    error: false,
-  };
   if (userFromLocalStorage) {
     return userFromLocalStorage;
   } else {
