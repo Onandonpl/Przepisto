@@ -6,18 +6,19 @@ import Error from "../components/pages/ErrorPage/Error";
 import Home from "../components/pages/Home/Home";
 import Login from "../components/pages/Auth/Login";
 import Register from "../components/pages/Auth/Register";
+import RecipeAdd from "../components/pages/Recipe/RecipeAdd/RecipeAdd";
 const Routes = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/register" component={Register}></Route>
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route exact path="/login" component={Login}></Route>
+      <Route exact path="/register" component={Register}></Route>
 
-        <PrivateRoute exact path="/user" component={UserInformation} />
-        <Route component={Error} />
-      </Switch>
-    </Router>
+      <PrivateRoute exact path="/user" component={UserInformation} />
+      <PrivateRoute exact path="/recipeadd" component={RecipeAdd} />
+
+      <Route component={Error} />
+    </Switch>
   );
 };
 
