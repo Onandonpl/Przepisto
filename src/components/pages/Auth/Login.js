@@ -1,20 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import Container from "../../Container";
-import { auth } from "../../../lib/firebase";
+import { auth, db } from "../../../lib/firebase";
+import { useAuth, useDispatchAuth } from "../../../context/AuthContext";
 
 const Login = () => {
   const { register, errors, handleSubmit } = useForm();
   const [loginError, setLoginError] = useState(false);
+
   const history = useHistory();
+  const contextUser = useAuth();
+  const dispatch = useDispatchAuth();
+
+  useEffect(() => {
+    if (contextUser.isLogged) {
+      return history.push("/");
+    }
+  }, [contextUser]);
+
+  const setLocalStorageUser = (userOnLogin) => {
+    const authUser = {
+      user: userOnLogin.uid,
+      displayName: userOnLogin.displayName,
+      loading: false,
+      error: false,
+      isLogged: true,
+    };
+
+    localStorage.setItem("authUser", JSON.stringify(authUser));
+  };
+
+  const addUserToCollection = (userOnLogin) => {
+    const userRef = db.collection("users").doc(userOnLogin.uid);
+    userRef.set({
+      userID: userOnLogin.uid,
+      name: userOnLogin.displayName,
+    });
+  };
 
   const onSubmit = async (data) => {
     try {
-      await auth.signInWithEmailAndPassword(data.email, data.password);
-      setLoginError(false);
+      await auth
+        .signInWithEmailAndPassword(data.email, data.password)
+        .then((data) => {
+          const { user } = data;
+          setLocalStorageUser(user);
+          dispatch({ type: "SUCCES_LOGIN", payload: user });
+          addUserToCollection(user);
+        });
+
       history.push("/");
     } catch (error) {
       setLoginError(true);
