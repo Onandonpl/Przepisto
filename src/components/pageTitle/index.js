@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-const Container = ({ helmet, children }) => {
+const PageTitle = ({ helmet, children }) => {
   return (
     <>
       <Helmet>
@@ -11,4 +11,4 @@ const Container = ({ helmet, children }) => {
   );
 };
 
-export default Container;
+export default PageTitle;

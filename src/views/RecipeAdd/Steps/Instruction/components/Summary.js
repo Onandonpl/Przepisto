@@ -1,25 +1,20 @@
 import React from "react";
-import styled from "styled-components";
+
+import { SummaryContainer, Title } from "../style";
+
+import StepSummary from "./StepSummary";
 
 const Summary = ({ data }) => {
-  console.log(data);
   return (
-    <Container>
+    <SummaryContainer>
+      <Title>Twoja instrukcja</Title>
       {data
         .map((step) => {
-          return (
-            <div data={step} key={step.step}>
-              {/* {step.name} */}
-            </div>
-          );
+          return <StepSummary data={step} key={step.step}></StepSummary>;
         })
         .reverse()}
-    </Container>
+    </SummaryContainer>
   );
 };
 
 export default Summary;
-const Container = styled.div`
-  max-width: 1000px;
-  width: 100%;
-`;

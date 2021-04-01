@@ -10,6 +10,7 @@ import Summary from "./components/Summary";
 import NavigationButtons from "../Navigation";
 
 import { Container } from "./style";
+import PageTitle from "../../../../components/pageTitle";
 
 const Ingredients = () => {
   const recipe = useRecipeAdd();
@@ -17,11 +18,14 @@ const Ingredients = () => {
   const { ingredients } = recipe;
 
   return (
-    <Container>
-      <IngredientForm dispatch={dispatch} />
-      <NavigationButtons prev={"/recipe-name"} next={"/recipe-steps"} />
-      <Summary data={ingredients} dispatch={dispatch} />
-    </Container>
+    <PageTitle helmet={"Dodaj składniki"}>
+      <Container>
+        <p>Podaj składniki swojego przepisu</p>
+        <IngredientForm dispatch={dispatch} />
+        <NavigationButtons prev={"/recipe-name"} next={"/recipe-steps"} />
+        <Summary data={ingredients} dispatch={dispatch} />
+      </Container>
+    </PageTitle>
   );
 };
 

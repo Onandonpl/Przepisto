@@ -28,7 +28,7 @@ const NameForm = () => {
     };
 
     dispatch({
-      type: "SUBMIT",
+      type: "ADD_BASIC",
       payload: payload,
     });
     history.push("/recipe-ingredients");

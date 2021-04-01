@@ -11,6 +11,7 @@ import NavigationButtons from "../Navigation";
 
 import InstructionForm from "./components/InstructionForm";
 import Summary from "./components/Summary";
+import PageTitle from "../../../../components/pageTitle";
 
 const Instruction = () => {
   const recipe = useRecipeAdd();
@@ -18,11 +19,14 @@ const Instruction = () => {
   const { steps } = recipe;
 
   return (
-    <Container>
-      <InstructionForm steps={steps} dispatch={dispatch} />
-      <NavigationButtons prev={"/recipe-ingredients"} next={"/recipe-images"} />
-      <Summary data={steps} dispatch={dispatch} />
-    </Container>
+    <PageTitle helmet={"Dodaj instrukcję"}>
+      <Container>
+        <p>Opisz kroki jak wykonać przepis</p>
+        <InstructionForm steps={steps} dispatch={dispatch} />
+        <NavigationButtons prev={"/recipe-ingredients"} next={"/recipe-tags"} />
+        <Summary data={steps} dispatch={dispatch} />
+      </Container>
+    </PageTitle>
   );
 };
 

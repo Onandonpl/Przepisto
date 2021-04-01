@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import AddImages from "../../AddImages";
 
 import { Form, Input, Select, TextArea, Submit } from "../style";
-
 const InstructionForm = ({ steps, dispatch }) => {
   const [images, setImages] = useState([]);
   const { register, handleSubmit } = useForm();
@@ -31,7 +30,7 @@ const InstructionForm = ({ steps, dispatch }) => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <label>Nazwa kroku</label>
-      <Input name="name" ref={register()} required />
+      <Input name="name" ref={register()} placeholder="Nazwa" required />
 
       <label>Czas przygotowania</label>
       <Select name="preparationTime" ref={register()}>

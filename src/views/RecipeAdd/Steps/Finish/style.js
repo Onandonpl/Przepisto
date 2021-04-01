@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const Container = styled.div`
   width: 100%;
 
@@ -34,30 +33,26 @@ export const Submit = styled.button`
     background-color: #febd2e;
   }
 `;
+export const NavButton = styled.button`
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
 
-//////////////////////////////
-export const SummaryContainer = styled.div`
-  max-width: 1000px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-///////////////////////////////
+  background-color: #fec56c;
 
-export const Title = styled.p`
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  color: #242424;
   font-weight: 700;
-`;
+  font-size: 10px;
+  cursor: pointer;
 
-export const Img = styled.img`
-  width: 150px;
-  height: 150px;
-  margin: 5px 15px;
+  transition: linear 0.1s;
+  &:hover {
+    background-color: #febd2e;
+  }
+  &:focus {
+    background-color: #febd2e;
+  }
 `;
-export const Images = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #fff;
-  border-radius: 10px;
-`;
-
-

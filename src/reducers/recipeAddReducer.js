@@ -1,32 +1,27 @@
 import { db } from "../lib/firebase";
 
 const handleAddRecipe = (data) => {
-  console.log(data);
-  db.collection("recipes").doc().set(data);
+  if (data.name) {
+    db.collection("recipes").doc().set(data);
+  } else {
+    alert("Wypełnij dane dotyczące przepisu");
+  }
 };
 
 export const recipeAddReducer = (state, action) => {
   switch (action.type) {
-    // case "SUBMIT":
-    //   handleAddRecipe({
-    //     ...state,
-    //     authorID: action.payload.authorID,
-    //     authorDisplayName: action.payload.authorDisplayName,
-    //     difficulty: action.payload.difficulty,
-    //     persons: action.payload.persons,
-    //     preparationTime: action.payload.preparationTime,
-    //     name: action.payload.name,
-    //   });
-    //   return initialState;
     case "SUBMIT":
+      handleAddRecipe(state);
+      return initialState;
+    case "ADD_BASIC":
       return {
         ...state,
+        name: action.payload.name,
         authorID: action.payload.authorID,
         authorDisplayName: action.payload.authorDisplayName,
         difficulty: action.payload.difficulty,
         persons: action.payload.persons,
         preparationTime: action.payload.preparationTime,
-        name: action.payload.name,
       };
     case "ADD_INGREDIENT":
       return { ...state, ingredients: [action.payload, ...state.ingredients] };
@@ -40,7 +35,7 @@ export const recipeAddReducer = (state, action) => {
     case "ADD_TAG":
       return { ...state, tags: [action.payload, ...state.tags] };
     case "ADD_IMAGE":
-      return { ...state, images: [{ url: action.payload }, ...state.images] };
+      return { ...state, images: action.payload, ...state.images };
     case "ADD_STEP":
       return { ...state, steps: [action.payload, ...state.steps] };
 

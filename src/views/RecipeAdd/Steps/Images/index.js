@@ -4,9 +4,12 @@ import {
   useRecipeAdd,
   useDispatchRecipeAdd,
 } from "../../../../context/RecipeAddContext";
-
+import { Container, Submit } from "./style";
 import AddImages from "../AddImages";
+
+import Summary from "./components/Summary";
 import NavigationButtons from "../Navigation";
+import PageTitle from "../../../../components/pageTitle";
 
 const Images = () => {
   const recipe = useRecipeAdd();
@@ -14,17 +17,20 @@ const Images = () => {
   const { images } = recipe;
 
   const [recipeImages, setRecipeImages] = useState([]);
-  console.log(recipeImages);
-  const handleFinishRecipe = () => {
-    dispatch({ type: "SUBMIT" });
+
+  const handleAddImage = () => {
+    dispatch({ type: "ADD_IMAGE", payload: recipeImages });
   };
   return (
-    <div>
-      <p>Dodaj zdjęcia swojego przepisu</p>
-      <AddImages setImages={setRecipeImages} images={recipeImages} />
-      <NavigationButtons />
-      <button onClick={handleFinishRecipe}></button>
-    </div>
+    <PageTitle helmet={"Dodaj zdjęcia"}>
+      <Container>
+        <p>Dodaj zdjęcia swojego przepisu</p>
+        <AddImages setImages={setRecipeImages} images={recipeImages} />
+        <Submit onClick={handleAddImage}>Dodaj zdjęcie</Submit>
+        <NavigationButtons prev={"/recipe-tags"} next={"/recipe-finish"} />
+        <Summary data={images} />
+      </Container>
+    </PageTitle>
   );
 };
 

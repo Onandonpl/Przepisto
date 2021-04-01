@@ -29,7 +29,7 @@ const AddImages = ({ setImages, images }) => {
             .child(newFileName)
             .getDownloadURL()
             .then((url) => {
-              setImages([...images, { url: url }]);
+              setImages([...images, { src: url }]);
               setFile(null);
             });
           setUploadProgress("");

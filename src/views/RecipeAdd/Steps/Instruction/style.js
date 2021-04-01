@@ -81,42 +81,6 @@ export const Submit = styled.button`
     background-color: #febd2e;
   }
 `;
-
-export const SummaryContainer = styled.div`
-  max-width: 1000px;
-  width: 100%;
-`;
-export const Ingredients = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-export const Title = styled.p`
-  font-weight: 700;
-`;
-export const Ingredient = styled.div`
-  width: 300px;
-  padding: 10px;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0px 5px 22px -15px rgba(0, 0, 0, 0.75);
-`;
-export const Button = styled.button`
-  height: 30px;
-  width: 30px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 export const TextArea = styled.textarea`
   width: 100%;
   margin: 10px;
@@ -128,4 +92,55 @@ export const TextArea = styled.textarea`
   &:hover {
     border-color: #febd2e;
   }
+`;
+//////////////////////////////
+export const SummaryContainer = styled.div`
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+///////////////////////////////
+export const Step = styled.div`
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 5px 22px -15px rgba(0, 0, 0, 0.75);
+`;
+export const Title = styled.p`
+  font-weight: 700;
+`;
+export const StepTitle = styled.p`
+  font-size: 20px;
+
+  margin: 5px 10px;
+`;
+export const StepDescription = styled.div`
+  width: 90%;
+  margin: 5px 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  p {
+    word-break: break-all;
+  }
+`;
+export const StepDuration = styled.p`
+  margin: 5px 15px;
+`;
+export const Img = styled.img`
+  width: 150px;
+  height: 150px;
+  margin: 5px 15px;
+`;
+export const Images = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

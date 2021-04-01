@@ -8,11 +8,17 @@ import {
   Instruction,
   Name,
   Tags,
+  Finish,
 } from "../views/RecipeAdd";
 const StepsRoutes = () => {
   return (
     <RecipeAddProvider>
-      <PrivateRoute exact path="/recipe-name" component={Name}></PrivateRoute>
+      <PrivateRoute exact path="/recipe-name" component={Name}></PrivateRoute>{" "}
+      <PrivateRoute
+        exact
+        path="/recipe-finish"
+        component={Finish}
+      ></PrivateRoute>
       <PrivateRoute exact path="/recipe-tags" component={Tags}></PrivateRoute>
       <PrivateRoute
         exact
