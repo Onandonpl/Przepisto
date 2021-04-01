@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import Container from "../../components/container";
+import PageTitle from "../../components/pageTitle";
 import { auth } from "../../lib/firebase";
 import { useAuth } from "../../context/AuthContext";
 
@@ -39,7 +39,7 @@ const Register = () => {
   };
 
   return (
-    <Container helmet={"Rejestracja"}>
+    <PageTitle helmet={"Rejestracja"}>
       <RegisterContainer>
         <RegisterTitle>Rejestracja</RegisterTitle>
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -81,7 +81,7 @@ const Register = () => {
           )}
         </Form>
       </RegisterContainer>
-    </Container>
+    </PageTitle>
   );
 };
 

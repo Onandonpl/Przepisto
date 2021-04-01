@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import Container from "../../components/container";
+import PageTitle from "../../components/pageTitle";
 import { auth, db } from "../../lib/firebase";
 import { useAuth, useDispatchAuth } from "../../context/AuthContext";
 
@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <Container helmet={"Logowanie"}>
+    <PageTitle helmet={"Logowanie"}>
       <LoginContainer>
         <LoginTitle>Logowanie</LoginTitle>
 
@@ -90,7 +90,7 @@ const Login = () => {
           {errors.password && <ErrorBox>{errors.password.message}</ErrorBox>}
         </Form>
       </LoginContainer>
-    </Container>
+    </PageTitle>
   );
 };
 
