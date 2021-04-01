@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import LogoutButton from "./LogoutButton";
-import LoginButton from "./LoginButton";
-import RegisterButton from "./RegisterButton";
-import MenuButton from "./MenuButton";
-import LogoButton from "./LogoButton";
+import LogoutButton from "./components/LogoutButton";
+import LoginButton from "./components/LoginButton";
+import RegisterButton from "./components/RegisterButton";
+import MenuButton from "./components/MenuButton";
+import LogoButton from "./components/LogoButton";
 import { useAuth } from "../../context/AuthContext";
 const Navbar = () => {
   const authContext = useAuth();

@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import Container from "../../Container";
-import { auth, db } from "../../../lib/firebase";
-import { useAuth, useDispatchAuth } from "../../../context/AuthContext";
+import Container from "../../components/container";
+import { auth, db } from "../../lib/firebase";
+import { useAuth, useDispatchAuth } from "../../context/AuthContext";
 
 const Login = () => {
   const { register, errors, handleSubmit } = useForm();

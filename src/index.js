@@ -2,17 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { AuthProvider } from "./context/AuthContext";
-import { TagsProvider } from "./context/TagsContext";
-import { IngredientsProvider } from "./context/IngredientsContext";
+
+import Providers from "./context/Providers";
 ReactDOM.render(
-  <AuthProvider>
-    <TagsProvider>
-      <IngredientsProvider>
-        <App />
-      </IngredientsProvider>
-    </TagsProvider>
-  </AuthProvider>,
+  <Providers>
+    <App />
+  </Providers>,
   document.getElementById("root")
 );
 

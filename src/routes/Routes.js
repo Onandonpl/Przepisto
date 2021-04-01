@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserInformation from "../components/pages/User/UserInformation";
+import { Switch, Route } from "react-router-dom";
+import UserInformation from "../views/User/UserInformation";
 import PrivateRoute from "./PrivateRoute";
-import Error from "../components/pages/ErrorPage/Error";
-import Home from "../components/pages/Home/Home";
-import Login from "../components/pages/Auth/Login";
-import Register from "../components/pages/Auth/Register";
-import RecipeAdd from "../components/pages/Recipe/RecipeAdd/RecipeAdd";
+import Error from "../views/ErrorPage/Error";
+import Home from "../views/Home/Home";
+import Login from "../views/Auth/Login";
+import Register from "../views/Auth/Register";
+import StepsRoutes from "./StepsRoutes";
 const Routes = () => {
   return (
     <Switch>
@@ -15,8 +15,7 @@ const Routes = () => {
       <Route exact path="/register" component={Register}></Route>
 
       <PrivateRoute exact path="/user" component={UserInformation} />
-      <PrivateRoute exact path="/recipeadd" component={RecipeAdd} />
-
+      <StepsRoutes />
       <Route component={Error} />
     </Switch>
   );
