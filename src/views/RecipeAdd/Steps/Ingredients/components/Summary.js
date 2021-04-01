@@ -18,7 +18,7 @@ const Summary = ({ data, dispatch }) => {
           const { name, amount, unit, price } = ingredient;
 
           return (
-            <Ingredient>
+            <Ingredient key={name}>
               <div>
                 <p> Nazwa: {name}</p>
                 <p> Ilość: {amount}</p>

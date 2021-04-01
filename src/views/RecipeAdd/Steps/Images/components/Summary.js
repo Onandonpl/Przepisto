@@ -6,7 +6,6 @@ const Summary = ({ data }) => {
       <Title>Twoje zdjęcia</Title>
       <Images>
         {data.map((image) => {
-          console.log(image.src);
 
           return <Img key={image.src} src={image.src} alt="step"></Img>;
         })}
