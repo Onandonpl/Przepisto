@@ -8,6 +8,23 @@ export const Container = styled.div`
   background-color: #fff;
   border: 1px solid #b3b3b3;
   border-radius: 10px;
+  p {
+    width: 40%;
+    padding: 5px;
+    margin: 10px;
+
+    background-color: #fec56c;
+
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
+    color: #242424;
+    font-weight: 400;
+
+    font-size: 13px;
+    text-align: center;
+  }
+
 `;
 
 export const Button = styled.button`

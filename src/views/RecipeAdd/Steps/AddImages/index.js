@@ -3,20 +3,21 @@ import { storage } from "../../../../lib/firebase";
 import { Container, Button } from "./style";
 
 const AddImages = ({ setImages, images }) => {
-  
   const [file, setFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState("");
+
   const handleChangeFile = (e) => {
     setFile(e.target.files[0]);
   };
+
   const handleUploadFile = () => {
     if (file) {
-      const newFileName = `${file.name}${Math.random()}`;
+      const newFileName = `${Math.random()}${file.name}`;
       const uploadFile = storage.ref(`images/${newFileName}`).put(file);
 
       uploadFile.on(
         "state_changed",
-        (snapshot) => {
+        () => {
           setUploadProgress("uploading");
         },
         (error) => {
@@ -41,9 +42,17 @@ const AddImages = ({ setImages, images }) => {
   return (
     <Container>
       <input type="file" onChange={handleChangeFile} />
-      <Button type="button" onClick={handleUploadFile} value={"Dodaj Zdjęcie"}>
-        Dodaj.
-      </Button>
+      {uploadProgress ? (
+        <p>Ładowanie</p>
+      ) : (
+        <Button
+          type="button"
+          onClick={handleUploadFile}
+          value={"Dodaj Zdjęcie"}
+        >
+          Dodaj.
+        </Button>
+      )}
     </Container>
   );
 };
