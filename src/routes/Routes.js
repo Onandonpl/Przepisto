@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import UserInformation from "../views/User/UserInformation";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../views/ErrorPage/Error";
-import Home from "../views/Home/Home";
+import Home from "../views/Home";
 import Login from "../views/Auth/Login";
 import Register from "../views/Auth/Register";
 import StepsRoutes from "./StepsRoutes";
