@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import UserInformation from "../views/User/UserInformation";
+import UserInformation from "../views/User";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../views/ErrorPage";
 import Home from "../views/Home";
@@ -14,12 +14,13 @@ import {
   Tags,
   Finish,
 } from "../views/RecipeAdd";
-
+import Recipe from "../views/Recipe";
 const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home}></Route>
       <Route exact path="/login" component={Login}></Route>
+      <Route exact path="/recipe/:id" component={Recipe}></Route>
       <Route exact path="/register" component={Register}></Route>
       <PrivateRoute exact path="/user" component={UserInformation} />
       <PrivateRoute exact path="/recipe-name" component={Name}></PrivateRoute>
