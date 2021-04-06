@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes/Routes";
 import Navbar from "./views/Navbar";
 import GlobalStyle, { Wrapper } from "./components/globals/GlobalStyle";
-
 const App = () => {
   return (
     <Router>
