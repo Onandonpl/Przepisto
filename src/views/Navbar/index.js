@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import LogoutButton from "./components/LogoutButton";
-import LoginButton from "./components/LoginButton";
-import RegisterButton from "./components/RegisterButton";
-import MenuButton from "./components/MenuButton";
-import LogoButton from "./components/LogoButton";
+import LogoutButton from "./components/LogoutButton/LogoutButton";
+import LoginButton from "./components/LoginButton/LoginButton";
+import RegisterButton from "./components/RegisterButton/RegisterButton";
+import LogoButton from "./components/LogoButton/LogoButton";
 import { useAuth } from "../../context/AuthContext";
+import Menu from "./components/Menu/Menu";
 const Navbar = () => {
   const authContext = useAuth();
   const { isLogged } = authContext;
@@ -22,7 +22,7 @@ const Navbar = () => {
 
         {isLogged && (
           <>
-            <MenuButton />
+            <Menu />
             <LogoutButton />
           </>
         )}
@@ -35,6 +35,7 @@ export default Navbar;
 
 const Container = styled.div`
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 50%;
   height: 50px;
