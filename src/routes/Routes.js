@@ -14,7 +14,7 @@ import {
   Tags,
   Finish,
 } from "../views/RecipeAdd";
-import Recipe from "../views/Recipe";
+import Recipe from "../views/Recipe/Recipe";
 const Routes = () => {
   return (
     <Switch>
