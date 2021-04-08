@@ -13,8 +13,10 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.4",
     "react-icons": "^4.2.0",
+    "react-image-gallery": "^1.0.9",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-to-pdf": "0.0.13",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.1.1"
   },
