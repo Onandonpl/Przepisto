@@ -11,9 +11,7 @@ const IngredientsDispatchContext = createContext();
 
 export const IngredientsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ingredientsReducer, initialState());
-  const [value, loading, error] = useCollection(
-    firebase.firestore().collection("ingredients")
-  );
+  const [value] = useCollection(firebase.firestore().collection("ingredients"));
 
   const setLocalStorageTags = (ingredientsFromFirebase) => {
     const ingredients = {

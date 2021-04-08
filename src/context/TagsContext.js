@@ -2,12 +2,13 @@ import React, { useReducer, useContext, createContext, useEffect } from "react";
 import { tagsReducer, initialState } from "../reducers/tagsReducer";
 import { useCollection } from "react-firebase-hooks/firestore";
 import firebase from "../lib/firebase";
+
 const TagsContext = createContext();
 const TagsDispatchContext = createContext();
 
 export const TagsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(tagsReducer, initialState());
-  const [value, loading, error] = useCollection(
+  const [value] = useCollection(
     firebase.firestore().collection("tags")
   );
 

@@ -17,7 +17,7 @@ export const initialState = () => {
 
 export const RecipesProvider = ({ children }) => {
   const [state, setState] = useState(initialState());
-  const [value, loading, error] = useCollection(
+  const [value] = useCollection(
     firebase.firestore().collection("recipes")
   );
 
