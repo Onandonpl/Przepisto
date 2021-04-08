@@ -8,7 +8,7 @@ import {
 import IngredientForm from "./components/IngredientForm";
 import Summary from "./components/Summary";
 import NavigationButtons from "../Navigation";
-
+import AddIngredient from "./components/AddIngredient/AddIngredient";
 import { Container } from "./style";
 import PageTitle from "../../../../components/pageTitle";
 
@@ -21,6 +21,7 @@ const Ingredients = () => {
     <PageTitle helmet={"Dodaj składniki"}>
       <Container>
         <p>Podaj składniki swojego przepisu</p>
+        <AddIngredient />
         <IngredientForm dispatch={dispatch} />
         <NavigationButtons prev={"/recipe-name"} next={"/recipe-steps"} />
         <Summary data={ingredients} dispatch={dispatch} />
