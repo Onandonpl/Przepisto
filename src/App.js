@@ -8,7 +8,7 @@ const App = () => {
     <Router>
       <Wrapper>
         <Navbar />
-        <Routes></Routes>
+        <Routes />
         <GlobalStyle />
       </Wrapper>
     </Router>
